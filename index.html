@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>見積書作成アプリ（出演料）</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- 左パネル：入力フォーム -->
+  <aside class="panel" id="panel">
+    <div class="panel-header">
+      <span class="panel-title">見積書作成</span>
+    </div>
+
+    <div class="panel-body">
+      <section class="section">
+        <h2>発行者情報</h2>
+        <div class="info-box">
+          〒107-0062<br>
+          東京都港区南青山3-15-4<br>
+          カーサ青山202<br>
+          TEL；03-5856-7322（代表）<br>
+          株式会社古賀プロダクション<br>
+          登録番号；T4010401072047
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>宛先・案件</h2>
+        <div class="field-group">
+          <label for="to">宛先（御中）</label>
+          <input id="to" type="text" placeholder="ビジネス選択理論能力検定協会" />
+        </div>
+        <div class="field-group">
+          <label for="project">案件名</label>
+          <input id="project" type="text" placeholder="ビジネス選択理論能力検定" />
+        </div>
+        <div class="field-group">
+          <label for="taxrate">消費税率 (%)</label>
+          <input id="taxrate" type="number" value="10" min="0" max="100" />
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>明細行</h2>
+        <div id="rows-container"></div>
+        <button class="add-btn" onclick="addRow()">＋ 行を追加</button>
+      </section>
+
+      <button class="dl-btn" id="dl-btn" onclick="downloadPDF()">
+        ↓ PDFをダウンロード
+      </button>
+    </div>
+  </aside>
+
+  <!-- 右：プレビュー -->
+  <main class="preview">
+    <div class="quote-paper" id="quote-paper">
+      <div class="quote-title">見積書（出演料）</div>
+      <div class="quote-title-line"></div>
+
+      <div class="quote-header">
+        <div class="quote-left">
+          <div><span class="quote-to" id="p-to"></span><span class="quote-to-label">御中</span></div>
+          <div class="quote-case-label">案件名</div>
+          <div class="quote-case-val" id="p-project"></div>
+          <div class="quote-msg">下記の通りご請求申し上げます</div>
+        </div>
+        <div class="quote-right">
+          <div class="quote-date" id="p-date"></div>
+          <div class="quote-sender">
+            〒107-0062<br>
+            東京都港区南青山3-15-4 カーサ青山202<br>
+            TEL；03-5856-7322（代表）<br>
+            株式会社古賀プロダクション<br>
+            登録番号；T4010401072047
+          </div>
+        </div>
+      </div>
+
+      <div class="total-box">
+        合計金額&nbsp;&nbsp;<span class="total-val" id="p-total">¥0</span>
+      </div>
+
+      <table class="qt">
+        <thead>
+          <tr>
+            <th style="width:8%">月日</th>
+            <th style="width:14%">名前</th>
+            <th style="width:5%">人数</th>
+            <th style="width:7%">開始</th>
+            <th style="width:2%"></th>
+            <th style="width:7%">終了</th>
+            <th style="width:10%">場所</th>
+            <th style="width:10%">シーン</th>
+            <th style="width:10%">単価</th>
+            <th style="width:10%">合計</th>
+            <th style="width:17%">備考</th>
+          </tr>
+        </thead>
+        <tbody id="p-rows"></tbody>
+        <tfoot id="p-foot"></tfoot>
+      </table>
+    </div>
+  </main>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

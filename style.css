@@ -1,0 +1,316 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  font-size: 13px;
+  background: #f5f5f3;
+  color: #222;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Layout ── */
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* ── Left Panel ── */
+.panel {
+  width: 320px;
+  min-width: 320px;
+  background: #fff;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e8e8e8;
+  background: #fff;
+}
+
+.panel-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  letter-spacing: 0.01em;
+}
+
+.panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px 24px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.info-box {
+  background: #f9f9f7;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.85;
+}
+
+.field-group {
+  margin-bottom: 10px;
+}
+
+.field-group label {
+  display: block;
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.field-group input {
+  width: 100%;
+  padding: 7px 10px;
+  font-size: 13px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  color: #222;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.field-group input:focus {
+  border-color: #aaa;
+}
+
+/* ── Row editor ── */
+.row-editor {
+  background: #f9f9f7;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.row-editor .del {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #bbb;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.row-editor .del:hover { color: #e55; }
+
+.row-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.row-grid .wide { grid-column: 1 / -1; }
+
+.row-editor .field-group { margin-bottom: 0; }
+
+.row-editor .field-group input {
+  font-size: 12px;
+  padding: 5px 8px;
+  background: #fff;
+}
+
+/* ── Buttons ── */
+.add-btn {
+  width: 100%;
+  padding: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  background: none;
+  border: 1px dashed #ccc;
+  color: #888;
+  margin-top: 4px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.add-btn:hover {
+  background: #f0f0ee;
+  border-color: #aaa;
+}
+
+.dl-btn {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 8px 20px 0;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  background: #111;
+  color: #fff;
+  border: none;
+  letter-spacing: 0.02em;
+  transition: background 0.15s;
+}
+
+.dl-btn:hover { background: #333; }
+.dl-btn:disabled { background: #aaa; cursor: not-allowed; }
+
+/* ── Preview area ── */
+.preview {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 24px;
+  background: #ebebea;
+}
+
+/* ── Quote paper ── */
+.quote-paper {
+  background: #fff;
+  color: #111;
+  padding: 44px 52px;
+  max-width: 740px;
+  margin: 0 auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  font-family: 'MS Gothic', 'Yu Gothic', 'Hiragino Kaku Gothic ProN', monospace;
+}
+
+.quote-title {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.quote-title-line {
+  border-bottom: 2px solid #111;
+  margin-bottom: 18px;
+}
+
+.quote-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  gap: 16px;
+}
+
+.quote-left { flex: 1; }
+
+.quote-to {
+  font-weight: bold;
+  font-size: 15px;
+  border-bottom: 1px solid #111;
+  padding-bottom: 2px;
+  display: inline-block;
+}
+
+.quote-to-label {
+  font-weight: bold;
+  font-size: 13px;
+  margin-left: 6px;
+}
+
+.quote-case-label {
+  margin-top: 14px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.quote-case-val {
+  font-weight: bold;
+  border-bottom: 1px solid #111;
+  display: inline-block;
+  padding-bottom: 1px;
+  font-size: 13px;
+  min-width: 160px;
+}
+
+.quote-msg {
+  font-size: 11px;
+  margin-top: 10px;
+  color: #333;
+}
+
+.quote-right { text-align: right; }
+
+.quote-date {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.quote-sender {
+  font-size: 11.5px;
+  line-height: 1.85;
+  color: #222;
+}
+
+.total-box {
+  display: inline-block;
+  background: #e8e8e8;
+  border: 1px solid #aaa;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.total-val {
+  font-size: 16px;
+  margin-left: 14px;
+}
+
+/* ── Quote table ── */
+table.qt {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+table.qt th {
+  background: #f0f0f0;
+  border: 1px solid #aaa;
+  padding: 5px 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+table.qt td {
+  border: 1px solid #aaa;
+  padding: 3px 5px;
+  text-align: center;
+  height: 22px;
+}
+
+table.qt td.left { text-align: left; }
+table.qt td.right { text-align: right; }
+
+tfoot td {
+  font-weight: bold;
+  border: 1px solid #aaa;
+  padding: 3px 5px;
+  text-align: right;
+}
+
+tfoot td.label { text-align: right; }
+tfoot td.val { text-align: right; }
