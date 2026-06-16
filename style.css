@@ -157,6 +157,26 @@ body {
   border-color: #aaa;
 }
 
+.clear-btn {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 16px 20px 8px;
+  padding: 9px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  background: none;
+  color: #c0392b;
+  border: 1px solid #e0b0ac;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.clear-btn:hover {
+  background: #fdf0ef;
+  border-color: #c0392b;
+}
+
 .dl-btn {
   display: block;
   width: calc(100% - 40px);

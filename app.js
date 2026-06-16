@@ -178,6 +178,17 @@ async function downloadPDF() {
   btn.textContent = '↓ PDFをダウンロード';
 }
 
+// ── クリア ──
+function clearAll() {
+  if (!confirm('宛先・案件名・明細行をすべてリセットしますか？')) return;
+  document.getElementById('to').value = '';
+  document.getElementById('project').value = '';
+  rows = [];
+  rowId = 0;
+  renderEditor();
+  renderPreview();
+}
+
 // ── イベントリスナー ──
 ['to', 'project', 'taxrate'].forEach(id => {
   document.getElementById(id)?.addEventListener('input', renderPreview);

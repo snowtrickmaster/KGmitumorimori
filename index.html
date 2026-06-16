@@ -51,6 +51,10 @@
         <button class="add-btn" onclick="addRow()">＋ 行を追加</button>
       </section>
 
+      <button class="clear-btn" onclick="clearAll()">
+        クリア（宛先・案件・明細をリセット）
+      </button>
+
       <button class="dl-btn" id="dl-btn" onclick="downloadPDF()">
         ↓ PDFをダウンロード
       </button>
@@ -72,7 +76,7 @@
         </div>
         <div class="quote-right">
           <div class="quote-date" id="p-date"></div>
-          <div class="quote-sender">
+          <div class="quote-sender" style="text-align:left;">
             〒107-0062<br>
             東京都港区南青山3-15-4 カーサ青山202<br>
             TEL；03-5856-7322（代表）<br>
@@ -92,9 +96,9 @@
             <th style="width:8%">月日</th>
             <th style="width:14%">名前</th>
             <th style="width:5%">人数</th>
-            <th style="width:7%">開始</th>
-            <th style="width:2%"></th>
-            <th style="width:7%">終了</th>
+            <th style="width:9%">開始</th>
+            <th style="width:3%"></th>
+            <th style="width:9%">終了</th>
             <th style="width:10%">場所</th>
             <th style="width:10%">シーン</th>
             <th style="width:10%">単価</th>
