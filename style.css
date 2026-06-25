@@ -320,6 +320,8 @@ table.qt td {
   padding: 3px 5px;
   text-align: center;
   height: 22px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 table.qt td.left { text-align: left; }
