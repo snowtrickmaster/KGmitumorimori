@@ -109,7 +109,7 @@ function renderPreview() {
     html += `<tr><td class="left" colspan="11">以下余白</td></tr>`;
   }
   const filled = rows.length + (rows.length > 0 ? 1 : 0);
-  const emptyCount = Math.max(20 - filled, 0);
+  const emptyCount = Math.max(3 - filled, 0);
   for (let i = 0; i < emptyCount; i++) {
     html += `<tr>${'<td></td>'.repeat(11)}</tr>`;
   }
@@ -150,7 +150,7 @@ async function downloadPDF() {
   try {
     const el = document.getElementById('quote-paper');
     const canvas = await html2canvas(el, {
-      scale: 2,
+      scale: 1.5,
       useCORS: true,
       backgroundColor: '#ffffff'
     });
