@@ -109,7 +109,7 @@ function renderPreview() {
     html += `<tr><td class="left" colspan="11">以下余白</td></tr>`;
   }
   const filled = rows.length + (rows.length > 0 ? 1 : 0);
-  const emptyCount = Math.max(5 - filled, 0);
+  const emptyCount = Math.max(6 - filled, 0);
   for (let i = 0; i < emptyCount; i++) {
     html += `<tr>${'<td></td>'.repeat(11)}</tr>`;
   }
